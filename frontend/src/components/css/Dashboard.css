@@ -1,0 +1,95 @@
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #2b5876, #4e4376);
+    color: #fff;
+  }
+  
+  /* Dashboard Container */
+  .dashboard-container {
+    padding: 20px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    text-align: center;
+  }
+  
+  /* Animated Title */
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    animation: slideIn 1.5s ease-out;
+  }
+  
+  /* Fade-in Animation */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Charts Container (Flexbox for alignment) */
+  .charts-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  /* Pie Chart Container */
+  .pie-chart {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+  }
+  
+  .pie-chart:hover{
+    transform: scale(1.05);
+  }
+  
+  .line-chart {
+    /* flex: 2; */
+    padding: 20px;
+    width: 100%; /* Adjust the width as needed */
+    max-width: 100%; /* Restrict the maximum width */
+    height: 582px; /* Set a reasonable height */
+    margin: 0 auto; /* Center the chart horizontally */
+    border-radius: 5px;
+    background: linear-gradient(120deg, #ffffff, #e8e8e8);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+  
+  /* Fade-in Animation */
+  @keyframes fadeIn {
+    from {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .charts-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  

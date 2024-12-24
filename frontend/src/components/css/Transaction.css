@@ -1,0 +1,129 @@
+/* Transaction Component Styles */
+.transaction-container {
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .transaction-container h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: slideIn 1.5s ease-out;
+  }
+  
+  .transaction-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .transaction-container li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeInUp 0.5s ease-out;
+  }
+  
+  .transaction-container li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  }
+  
+  .transaction-container form {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .transaction-container form label {
+    /* display: block; */
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .transaction-container form input,
+  .transaction-container form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transition: background 0.3s ease;
+  }
+  
+  .transaction-container form input:focus,
+  .transaction-container form select:focus {
+    background: rgba(255, 255, 255, 0.3);
+    outline: none;
+  }
+  
+  .transaction-container form button {
+    background: linear-gradient(45deg, #ff6b6b, #f94c66);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .transaction-container form button:hover {
+    background: linear-gradient(45deg, #f94c66, #ff6b6b);
+    transform: scale(1.05);
+  }
+  
+  .transaction-container p {
+    text-align: center;
+    font-size: 1.2rem;
+    animation: blink 1.5s infinite;
+  }
+  
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
