@@ -1,78 +1,115 @@
-  /* Dashboard Container */
+.dashboard-content {
+  /* flex: 1; */
+  /* padding: 20px; */
+  display: flex;
+  width: 64%;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.cards-container {
+  /* padding: 20px; */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+h3 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+/* Rows Layout */
+.row {
+  display: flex; /* Arrange items horizontally within each row */
+  gap: 20px; /* Space between cards in the row */
+  justify-content: space-between; /* Distribute items evenly */
+  width: 100%;
+}
+
+.card-categories {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  margin: 5px 0;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.card-categories:nth-child(odd) {
+  background-color: #f4f4f4;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  flex: 1; /* Make all cards in a row equal width */
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  color: #008080;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.popular-category {
+  flex: 2; /* Make the Popular Category card twice as wide */
+  /* Add subtle orange background */
+  /* background-color: rgba(255, 128, 66, 0.1);  */
+  background-color: #f9f9f9;
+}
+
+/* Total Expenses and Transaction Frequency Cards */
+.total-expenses,
+.transaction-frequency {
+  flex: 1; /* Make these cards standard width */
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Apply Fade-in Animation */
+.card {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
   .dashboard-content {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stack line chart and cards on smaller screens */
     align-items: center;
   }
-  .cards-container {
-    display: flex;
-    flex-direction: column; /* Arrange rows vertically */
-    gap: 20px; /* Space between rows */
+
+  .line-chart {
     width: 100%;
   }
 
-  /* h3{
-    color: rgba(255, 208, 0, 0.877);
-  } */
-  
-  .row {
-    display: flex; /* Arrange items horizontally within each row */
-    gap: 20px; /* Space between cards in the row */
-    justify-content: space-between; /* Distribute items evenly */
+  .cards-container {
     width: 100%;
   }
-  
-  .card {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    flex: 1; /* Make all cards in a row equal width */
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+
+  .row {
+    flex-direction: column; /* Stack cards vertically */
+    gap: 15px; /* Reduce gap for smaller screens */
   }
-  
-  .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-  }
-  
-  .popular-category {
-    flex: 2; /* Make the Popular Category card twice as wide */
-  }
-  
-  .total-expenses, 
-  .transaction-frequency {
-    flex: 1; /* Make these cards standard width */
-  }
-  
-  
-  /* Fade-in Animation */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: scale(0.9);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-  
-  /* Responsive Layout */
-  @media (max-width: 768px) {
-    .dashboard-content {
-      flex-direction: column; /* Stack line chart and cards on smaller screens */
-      align-items: center;
-    }
-  
-    .line-chart {
-      width: 100%;
-    }
-  
-    .cards-container {
-      width: 100%;
-    }
-  }
-  
+}

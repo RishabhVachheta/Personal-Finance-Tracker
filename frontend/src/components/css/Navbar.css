@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* padding: 10px; */
+  /* padding: 10px 20px; */
   background-color: #2c3e50;
   color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -14,8 +14,11 @@
 }
 
 .navbar-container {
-    padding: 10px 20px;
+  width: 100%; 
+  padding: 10px 20px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 15px;
 }
 
@@ -33,6 +36,22 @@
   background-color: #34495e;
 }
 
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: 40px; /* Adjust as needed */
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
 .login-btn {
   background-color: #563ce7;
   color: white;
@@ -43,6 +62,7 @@
 }
 
 .logout-btn {
+  margin-left: auto;
   background-color: #e74c3c;
   color: white;
   padding: 8px 12px;

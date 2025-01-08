@@ -11,7 +11,6 @@ import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
 import { AuthProvider } from "./context/AuthContext";
 import Transaction from "./components/Transaction";
-import Categories from "./components/Categories";
 import Navbar from "./components/Navbar";
 import Goals from "./components/Goals";
 

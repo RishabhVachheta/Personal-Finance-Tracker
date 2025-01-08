@@ -16,3 +16,6 @@ export const getDashboardData = () => Api.get("/dashboard");
 export const getGoals = () => Api.get("/goals");
 export const createGoal = (goalData) => Api.post("/goals", goalData);
 export const updateGoal = (id, updateData) => Api.put(`/goals/${id}`, updateData);
+export const getSpendingTrends = () => Api.get("/spending-trends");
+export const getCategoryInsights = () => Api.get("/category-insights");
+export const getPredictedExpenses = () => Api.get("/predict-expenses");

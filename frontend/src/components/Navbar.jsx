@@ -2,27 +2,39 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import "./css/Navbar.css";
-// import "./css/Dashboard.css"
+import logo from "../components/Logo/logo.png.png"; // Import the logo image
 
 const Navbar = () => {
-  const { user, logout } = useContext(AuthContext); 
+  const { user, logout } = useContext(AuthContext);
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="navbar-link">Dashboard</Link>
-        <Link to="/transactions" className="navbar-link">Transaction</Link>
-        <Link to="/goals" className="navbar-link">Goal</Link>
+        {/* Logo Section */}
+        <div className="navbar-logo">
+          <img src={logo} alt="Finance Tracker Logo" className="logo-image" />
+          <span className="logo-text">Finance Tracker</span>
+        </div>
 
-        {user ? (
-          <button className="navbar-link logout-btn" onClick={logout}>
-            Logout
-          </button>
-        ) : (
-          <Link to="/login" className="navbar-link login-btn">
-            Login
-          </Link>
-        )}
+        {/* Navigation Links */}
+        <div className="navbar-links">
+          <Link to="/" className="navbar-link">Dashboard</Link>
+          <Link to="/transactions" className="navbar-link">Transaction</Link>
+          <Link to="/goals" className="navbar-link">Goal</Link>
+        </div>
+
+        {/* User Authentication Section */}
+        <div className="navbar-auth">
+          {user ? (
+            <button className="navbar-link logout-btn" onClick={logout}>
+              Logout
+            </button>
+          ) : (
+            <Link to="/login" className="navbar-link login-btn">
+              Login
+            </Link>
+          )}
+        </div>
       </div>
     </nav>
   );

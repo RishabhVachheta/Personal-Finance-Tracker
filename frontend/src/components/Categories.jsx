@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { getDashboardData } from "../services/api"; // Adjust the import path based on your file structure
 import "./css/Categories.css"; // Import the new CSS file
@@ -34,19 +33,21 @@ const Categories = () => {
   }
 
   return (
-      <div className="dashboard-content">
-        {/* Cards Section */}
-        <div className="cards-container">
-          {/* Spending by Category */}
-          <div className="row">
+    <div className="dashboard-content">
+      {/* Cards Section */}
+      <div className="cards-container">
+        {/* Spending by Category */}
+        <div className="row">
           <div className="card popular-category">
             <h3>Spending by Category</h3>
             <div>
-              {Object.entries(dashboardData.spendingByCategory).map(([category, Expense]) => (
-                <div key={category}>
-                  <strong>{category}:</strong> ${Expense}
-                </div>
-              ))}
+              {Object.entries(dashboardData.spendingByCategory).map(
+                ([category, Expense]) => (
+                  <div key={category} className="card-categories">
+                    <strong>{category}:</strong> ${Expense}
+                  </div>
+                )
+              )}
             </div>
           </div>
 
@@ -60,22 +61,24 @@ const Categories = () => {
               <strong>This Week:</strong> ${dashboardData.totalExpenses.week}
             </p>
           </div>
-          </div>
+        </div>
 
-          {/* Transaction Frequency */}
-          <div class="row">
+        {/* Transaction Frequency */}
+        <div class="row">
           <div className="card transaction-frequency">
             <h3>Transaction Frequency</h3>
             <p>
-              <strong>Daily:</strong> {dashboardData.frequency.daily} transactions
+              <strong>Daily:</strong> {dashboardData.frequency.daily}{" "}
+              transactions
             </p>
             <p>
-              <strong>Weekly:</strong> {dashboardData.frequency.weekly} transactions
+              <strong>Weekly:</strong> {dashboardData.frequency.weekly}{" "}
+              transactions
             </p>
-          </div>
           </div>
         </div>
       </div>
+    </div>
   );
 };
 

@@ -3,16 +3,13 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(120deg, #2b5876, #4e4376);
-    color: #fff;
+    /* background: linear-gradient(120deg, #2b5876, #4e4376); */
+    background-color:#e8e8e8;
   }
   
   /* Dashboard Container */
   .dashboard-container {
     padding: 20px;
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
     text-align: center;
   }
   
@@ -38,23 +35,24 @@ body {
   /* Charts Container (Flexbox for alignment) */
   .charts-container {
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content:space-between;
+    align-items: stretch;
     gap: 20px;
     flex-wrap: wrap;
   }
   
   /* Pie Chart Container */
   .pie-chart {
-    flex: 1;
+    flex: 2;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
+    background-color: #f9f9f9;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s;
+    /* width: 53%; */
   }
   
   .pie-chart:hover{
@@ -66,7 +64,7 @@ body {
     padding: 20px;
     width: 100%; /* Adjust the width as needed */
     max-width: 100%; /* Restrict the maximum width */
-    height: 582px; /* Set a reasonable height */
+    height: 730px; /* Set a reasonable height */
     margin: 0 auto; /* Center the chart horizontally */
     border-radius: 5px;
     background: linear-gradient(120deg, #ffffff, #e8e8e8);
@@ -93,3 +91,78 @@ body {
     }
   }
   
+
+  /* Styling the transaction details container */
+.transaction-details {
+  /* width: 30%;  */
+  flex: 1;
+  margin-left: 20px;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light gray background */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px; /* Ensure consistent height */
+}
+
+/* Default message styling */
+.transaction-details p {
+  font-size: 1.1rem; /* Slightly larger font size */
+  color: #555; /* Neutral gray color */
+  text-align: center;
+}
+
+/* Transaction card for displaying selected transaction */
+.transaction-card {
+  width: 100%; /* Full width within the container */
+  padding: 20px;
+  background-color: white; /* White background for better contrast */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: left; /* Align text to the left */
+}
+
+.transaction-card h3 {
+  font-size: 1.5rem; 
+  color: #333; 
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Paragraph styling within the transaction card */
+.transaction-card p {
+  font-size: 1rem; /* Standard font size */
+  color: #555; /* Neutral gray */
+  margin: 5px 0;
+  line-height: 1.6; /* Increased line height for readability */
+}
+
+/* Highlighting the labels */
+.transaction-card p strong {
+  color: #333; /* Darker color for labels */
+}
+
+/* Add hover effect for transaction card */
+.transaction-card:hover {
+  background-color: #f5f5f5; /* Slightly lighter background on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .transaction-details {
+    width: 100%; /* Full width for smaller screens */
+    margin: 0 auto; /* Center align for smaller devices */
+  }
+
+  .transaction-card {
+    padding: 15px; /* Reduce padding for smaller screens */
+  }
+}
+
