@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import "./css/Navbar.css";
 import logo from "../components/Logo/logo.png.png"; // Import the logo image
+import ExportCSV from "./ExportButtons";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -25,6 +26,7 @@ const Navbar = () => {
 
         {/* User Authentication Section */}
         <div className="navbar-auth">
+          <ExportCSV/>
           {user ? (
             <button className="navbar-link logout-btn" onClick={logout}>
               Logout

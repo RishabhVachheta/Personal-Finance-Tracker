@@ -171,6 +171,7 @@ const Dashboard = () => {
         </div>
         <Categories></Categories>
         <FinancialTrends />
+        
 
         {/* Line Chart */}
         <div className="line-chart">

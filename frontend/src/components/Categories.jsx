@@ -60,6 +60,9 @@ const Categories = () => {
             <p>
               <strong>This Week:</strong> ${dashboardData.totalExpenses.week}
             </p>
+            <p>
+              <strong>This month:</strong> ${dashboardData.totalExpenses.month}
+            </p>
           </div>
         </div>
 

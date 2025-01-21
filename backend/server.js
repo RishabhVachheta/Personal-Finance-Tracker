@@ -7,6 +7,7 @@ const transactionRoutes = require("./routes/transactionRoutes");
 const dashboardRoute = require("./routes/dashboard");
 const goals = require("./routes/goals")
 const trendRoutes = require("./routes/trendRoutes")
+const csv = require("./routes/csv")
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.use("/api/transactions", transactionRoutes);
 app.use("/api/dashboard", dashboardRoute);
 app.use("/api/goals", goals);
 app.use("/api", trendRoutes);
+app.use("/api", csv);
 
 
 // const jwtSecret = process.env.JWT_SECRET;

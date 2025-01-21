@@ -1,23 +1,8 @@
 const express = require("express");
 const Transaction = require("../models/Transaction");
-const jwt = require("jsonwebtoken");
+const authenticate = require("../middleware/authenticate");
 
 const router = express.Router();
-
-const authenticate = (req, res, next) => {
-  const token = req.header("Authorization");
-  if (!token) return res.status(401).json({ message: "Unauthorized" });
-
-  try {
-    const cleanToken = token.startsWith("Bearer ") ? token.split(" ")[1] : token;
-    const verified = jwt.verify(cleanToken, process.env.JWT_SECRET);
-    req.user = verified;
-    next();
-  } catch (err) {
-    res.status(400).json({ message: "Invalid Token" });
-  }
-};
-
 
 router.post("/", authenticate, async (req, res) => {
   try {

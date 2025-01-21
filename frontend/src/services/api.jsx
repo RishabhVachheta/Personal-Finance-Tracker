@@ -19,3 +19,4 @@ export const updateGoal = (id, updateData) => Api.put(`/goals/${id}`, updateData
 export const getSpendingTrends = () => Api.get("/spending-trends");
 export const getCategoryInsights = () => Api.get("/category-insights");
 export const getPredictedExpenses = () => Api.get("/predict-expenses");
+export const ExportButtons = () => Api.get("/export/csv");

@@ -1,26 +1,10 @@
 const express = require("express");
 const Goal = require("../models/Goal");
 const Transaction = require("../models/Transaction")
-const jwt = require("jsonwebtoken");
+const authenticate = require("../middleware/authenticate");
 const mongoose = require("mongoose");
 
-
 const router = express.Router();
-
-// Middleware to authenticate requests
-const authenticate = (req, res, next) => {
-  const token = req.header("Authorization");
-  if (!token) return res.status(401).json({ message: "Unauthorized" });
-
-  try {
-    const cleanToken = token.startsWith("Bearer ") ? token.split(" ")[1] : token;
-    const verified = jwt.verify(cleanToken, process.env.JWT_SECRET);
-    req.user = verified; // Attach user data (e.g., userId) to request object
-    next();
-  } catch (err) {
-    res.status(400).json({ message: "Invalid Token" });
-  }
-};
 
 // Route to create a new goal
 router.post("/", authenticate, async (req, res) => {

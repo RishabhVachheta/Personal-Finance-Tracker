@@ -1,24 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const Transaction = require("../models/Transaction");
-const jwt = require("jsonwebtoken");
+const authenticate = require("../middleware/authenticate");
 const mongoose = require("mongoose");
 const { Types } = mongoose;
-
-const authenticate = (req, res, next) => {
-  const token = req.header("Authorization");
-  if (!token) return res.status(401).json({ message: "Unauthorized" });
-
-  try {
-    const cleanToken = token.startsWith("Bearer ") ? token.split(" ")[1] : token;
-    const verified = jwt.verify(cleanToken, process.env.JWT_SECRET);
-    req.user = verified; // Attach user data (e.g., userId) to request object
-    next();
-  } catch (err) {
-    res.status(400).json({ message: "Invalid Token" });
-  }
-};
-
+ 
 // Endpoint to fetch dashboard data
 router.get("/", authenticate, async (req, res) => {
   try {
@@ -32,6 +18,9 @@ router.get("/", authenticate, async (req, res) => {
     // Week Start Date
     const weekStart = new Date();
     weekStart.setDate(today.getDate() - 7);
+
+    const monthStart = new Date();
+    monthStart.setMonth(today.getMonth()-30);
     
     // Fetch transactions for the logged-in user
     const transactions = await Transaction.find({ userId });
@@ -77,6 +66,22 @@ router.get("/", authenticate, async (req, res) => {
         },
       },
     ]);
+
+    const monthExpenses = await Transaction.aggregate([
+      {
+        $match: {
+          userId: objectId, 
+          date: { $gte: monthStart },
+          type: "Expense",
+        },
+      },
+      {
+        $group: {
+          _id: null,
+          total: { $sum: "$amount" },
+        },
+      },
+    ]);
     
     // Calculate daily transaction frequency for the logged-in user
     const dailyFrequency = await Transaction.countDocuments({
@@ -96,6 +101,7 @@ router.get("/", authenticate, async (req, res) => {
       totalExpenses: {
         today: todayExpenses[0]?.total || 0,
         week: weekExpenses[0]?.total || 0,
+        month: monthExpenses[0]?.total || 0,
       },
       frequency: {
         daily: dailyFrequency,
