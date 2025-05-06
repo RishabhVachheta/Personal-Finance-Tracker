@@ -16,7 +16,7 @@ const Login = () => {
     try {
       const { data } = await login(formData);
       loginUser(data.user, data.token);
-      navigate("/");
+      navigate("/dashboard");
     } catch (err) {
       if (err.response && err.response.data && err.response.data.error) {
         setError(err.response.data.error); 
