@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const Api = axios.create({ baseURL: "http://localhost:5000/api" });
+const Api = axios.create({ baseURL: "https://personal-finance-tracker-jiz7.onrender.com/api" });
 
 Api.interceptors.request.use((req) => {
     const token = localStorage.getItem("token");

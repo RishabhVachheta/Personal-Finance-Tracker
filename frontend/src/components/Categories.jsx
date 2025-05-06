@@ -67,7 +67,7 @@ const Categories = () => {
         </div>
 
         {/* Transaction Frequency */}
-        <div class="row">
+        <div className="row">
           <div className="card transaction-frequency">
             <h3>Transaction Frequency</h3>
             <p>
